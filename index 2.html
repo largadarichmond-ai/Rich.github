@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Letter for Anica</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fff8fb 0%, #ffeef6 100%);
+    font-family: 'Brush Script MT', cursive;
+  }
+
+  .envelope-container {
+    position: relative;
+    width: 500px;
+    cursor: pointer;
+  }
+
+  /* Envelope base */
+  .envelope {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, #ff9fc9, #ff6fa3);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+
+  /* Triangular flap pointing downward */
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, #ffd6e8 0%, #fff1f7 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.7s ease;
+    z-index: 2;
+  }
+
+  /* Letter inside */
+  .letter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #fffdf8;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .letter h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .letter p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .envelope.open .flap {
+    transform: rotateX(180deg);
+  }
+
+  .envelope.open .letter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="envelope-container">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="letter">
+      <h2>Dear Anica,</h2>
+      <p>
+        From the very first day we started talking, I felt something special. In just a month of knowing you, you’ve already left such a deep mark on me. Your presence, your words, and even the smallest things you do brighten up my days more than you can imagine.
+      </p>
+      <p>
+        I find myself excited to check my phone, not for anything else, but for your messages. They may be simple or random at times, but for me, they mean the world. You have this way of making me smile without even trying, and that’s rare. You remind me that genuine connections still exist, and I feel so lucky that ours is one of them.
+      </p>
+      <p>
+        I wrote this letter to let you know something important: I truly like you. But more than just liking you, I admire who you are, your kindness, your sincerity, the way you carry yourself, and the light you bring to others. I want you to know that my intentions are serious. I want to court you, not just with words or sweet gestures, but with consistent actions that will show you how much I value and respect you.
+      </p>
+      <p>
+        I may not be perfect, but I promise to always give my best. I want to be the person you can lean on when you’re tired, the one who listens when you need to talk, and the one who supports you in chasing your dreams. I want to share not just laughter, but also the quiet, heavy moments that life sometimes brings. Because to me, real love isn’t just about the good days, it’s about choosing each other even through the storms.
+      </p>
+      <p>
+        I don’t want to rush things. I respect your pace and your feelings. But I don’t want to waste another day without telling you how much you mean to me. So here I am, writing this, taking a step forward, hoping you’ll allow me the chance to prove that my words aren’t empty, that they come with genuine effort and loyalty.
+      </p>
+      <p>
+        Anica, I hope that one day, when you look back, you’ll remember this moment as the start of something beautiful. Something true. Something worth keeping.
+      </p>
+      <p>
+        With sincerity and hope,<br>
+        <strong>Rich</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const envelope = document.getElementById('envelope');
+  envelope.addEventListener('click', () => {
+    envelope.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
